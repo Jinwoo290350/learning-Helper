@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd3unrfecsaqp"]
+
+[ext_resource type="Script" path="res://intro/Game/GameSayWord/say.gd" id="1_m3sxq"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_m3sxq")
+outputPath = null
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bj88qsrydgkg1"]
+
+[ext_resource type="Script" path="res://intro/Script/intro.gd" id="1_k3yhu"]
+[ext_resource type="Texture2D" uid="uid://rb3hgtcf7ppr" path="res://assets/Copy_of_Copy_of_Bone_Quest.jpg" id="2_5lccp"]
+[ext_resource type="Texture2D" uid="uid://c3flsdt4bwg1h" path="res://assets/icon/Icon_Tube.png" id="3_1rpvg"]
+[ext_resource type="AudioStream" uid="uid://cvxtxqg8tscrm" path="res://SFX/presssfx.mp3" id="3_pvb3e"]
+[ext_resource type="Texture2D" uid="uid://bn4gmr8ge5eht" path="res://assets/icon/Icon_Exit.png" id="4_k4xfh"]
+[ext_resource type="AudioStream" uid="uid://cvtdqha40t641" path="res://SFX/cute-creatures-150622.mp3" id="6_rvvt0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tocpo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmycj"]
+
+[node name="Intro" type="Control" node_paths=PackedStringArray("PressSFX", "MusicSFX")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_k3yhu")
+PressSFX = NodePath("PressSfx")
+MusicSFX = NodePath("Music")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 650.0
+texture = ExtResource("2_5lccp")
+expand_mode = 2
+
+[node name="play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 240.0
+offset_right = 632.0
+offset_bottom = 394.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_tocpo")
+icon = ExtResource("3_1rpvg")
+flat = true
+expand_icon = true
+
+[node name="quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 416.0
+offset_right = 624.0
+offset_bottom = 538.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_wmycj")
+text = "
+"
+icon = ExtResource("4_k4xfh")
+flat = true
+expand_icon = true
+
+[node name="PressSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_pvb3e")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rvvt0")
+volume_db = -0.13
+
+[connection signal="pressed" from="play" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

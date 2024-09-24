@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://owrjg1pa85ss"]
+
+[ext_resource type="Script" path="res://intro/Script/mainmenu.gd" id="1_p2bfe"]
+[ext_resource type="Texture2D" uid="uid://0trj3dhh5oxu" path="res://assets/bg/bgg.jpg" id="2_lonky"]
+[ext_resource type="Texture2D" uid="uid://cac4o0n45wve6" path="res://assets/icon/Icon_ArrowLeft.png" id="3_70npx"]
+[ext_resource type="Texture2D" uid="uid://b3hw3umkggeeo" path="res://assets/bg/bg1.png" id="3_qcshl"]
+[ext_resource type="AudioStream" uid="uid://cvxtxqg8tscrm" path="res://SFX/presssfx.mp3" id="4_4s5hf"]
+[ext_resource type="Texture2D" uid="uid://bupyhfdpjam3l" path="res://assets/bg/bg2.png" id="4_qwsev"]
+[ext_resource type="Texture2D" uid="uid://d1aj8icd7kht0" path="res://assets/bg/bg3.png" id="5_gqqmc"]
+[ext_resource type="AudioStream" uid="uid://cvtdqha40t641" path="res://SFX/cute-creatures-150622.mp3" id="8_6st15"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbsyn"]
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h0ly"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i17v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_monxx"]
+
+[node name="Mainmenu" type="Control" node_paths=PackedStringArray("PressSFX", "MusicSFX")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_p2bfe")
+PressSFX = NodePath("Presssfx")
+MusicSFX = NodePath("Musicsfx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+texture = ExtResource("2_lonky")
+expand_mode = 1
+
+[node name="game" type="Button" parent="."]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 148.0
+offset_right = 421.0
+offset_bottom = 525.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbsyn")
+icon = ExtResource("3_qcshl")
+flat = true
+expand_icon = true
+
+[node name="dailyActivity" type="Button" parent="."]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 148.0
+offset_right = 740.0
+offset_bottom = 527.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h0ly")
+text = "
+"
+icon = ExtResource("4_qwsev")
+flat = true
+expand_icon = true
+
+[node name="Socialvideo" type="Button" parent="."]
+layout_mode = 0
+offset_left = 758.0
+offset_top = 148.0
+offset_right = 1049.0
+offset_bottom = 527.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0i17v")
+icon = ExtResource("5_gqqmc")
+flat = true
+expand_icon = true
+
+[node name="goback" type="Button" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 33.0
+offset_right = 127.0
+offset_bottom = 132.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_monxx")
+icon = ExtResource("3_70npx")
+flat = true
+expand_icon = true
+
+[node name="Presssfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4s5hf")
+
+[node name="Musicsfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_6st15")
+volume_db = -9.72
+
+[connection signal="pressed" from="game" to="." method="_on_game_pressed"]
+[connection signal="pressed" from="dailyActivity" to="." method="_on_daily_activity_pressed"]
+[connection signal="pressed" from="Socialvideo" to="." method="_on_socialvideo_pressed"]
+[connection signal="pressed" from="goback" to="." method="_on_goback_pressed"]

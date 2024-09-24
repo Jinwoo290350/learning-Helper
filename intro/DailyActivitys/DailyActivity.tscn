@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://c45ilfbm25d8y"]
+
+[ext_resource type="Script" path="res://intro/Script/DailyActivity.gd" id="1_43344"]
+[ext_resource type="AudioStream" uid="uid://cvxtxqg8tscrm" path="res://SFX/presssfx.mp3" id="2_he04v"]
+[ext_resource type="Texture2D" uid="uid://0trj3dhh5oxu" path="res://assets/bg/bgg.jpg" id="2_klqoi"]
+[ext_resource type="Texture2D" uid="uid://cac4o0n45wve6" path="res://assets/icon/Icon_ArrowLeft.png" id="3_0101g"]
+[ext_resource type="Texture2D" uid="uid://drc3p5pp34mi8" path="res://assets/bg/food.png" id="3_jps57"]
+[ext_resource type="Texture2D" uid="uid://dx74juklix0pr" path="res://assets/bg/lockbg.png" id="3_mh0jj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n32ll"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c5jj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhmep"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lf07k"]
+
+[node name="DailyActivity" type="Control" node_paths=PackedStringArray("PressSFX")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_43344")
+PressSFX = NodePath("AudioStreamPlayer2D")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 647.0
+texture = ExtResource("2_klqoi")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 81.0
+offset_right = 700.0
+offset_bottom = 164.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Daily life
+"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 192.0
+offset_right = 395.0
+offset_bottom = 579.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_n32ll")
+icon = ExtResource("3_jps57")
+flat = true
+expand_icon = true
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 192.0
+offset_right = 734.0
+offset_bottom = 579.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_3c5jj")
+icon = ExtResource("3_mh0jj")
+flat = true
+expand_icon = true
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 754.0
+offset_top = 192.0
+offset_right = 1059.0
+offset_bottom = 579.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bhmep")
+icon = ExtResource("3_mh0jj")
+flat = true
+expand_icon = true
+
+[node name="goback" type="Button" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 39.0
+offset_right = 129.0
+offset_bottom = 126.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf07k")
+icon = ExtResource("3_0101g")
+flat = true
+expand_icon = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_he04v")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="goback" to="." method="_on_button_4_pressed"]

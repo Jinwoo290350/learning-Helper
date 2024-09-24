@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://dv8ttung62pdo"]
+
+[ext_resource type="Script" path="res://intro/Script/Game.gd" id="1_6y8l1"]
+[ext_resource type="AudioStream" uid="uid://cvxtxqg8tscrm" path="res://SFX/presssfx.mp3" id="2_3tk0t"]
+[ext_resource type="Texture2D" uid="uid://0trj3dhh5oxu" path="res://assets/bg/bgg.jpg" id="2_f5gka"]
+[ext_resource type="Texture2D" uid="uid://hkl36hqvpggd" path="res://assets/bg/swbg.png" id="3_b11qn"]
+[ext_resource type="Texture2D" uid="uid://cac4o0n45wve6" path="res://assets/icon/Icon_ArrowLeft.png" id="3_tj5l0"]
+[ext_resource type="Texture2D" uid="uid://yupjw6myq216" path="res://assets/bg/mbbg.png" id="4_64ctj"]
+[ext_resource type="Texture2D" uid="uid://dx74juklix0pr" path="res://assets/bg/lockbg.png" id="5_mmn6m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyqqp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alc6t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwlej"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cm6c"]
+
+[node name="Game" type="Control" node_paths=PackedStringArray("PressSFX")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6y8l1")
+PressSFX = NodePath("AudioStreamPlayer2D")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 650.0
+texture = ExtResource("2_f5gka")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 54.0
+offset_right = 741.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "OUR GAMES"
+
+[node name="saywordgame" type="Button" parent="."]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 145.0
+offset_right = 429.0
+offset_bottom = 552.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kyqqp")
+icon = ExtResource("3_b11qn")
+flat = true
+expand_icon = true
+
+[node name="matchboxgame" type="Button" parent="."]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 145.0
+offset_right = 746.0
+offset_bottom = 552.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_alc6t")
+icon = ExtResource("4_64ctj")
+flat = true
+expand_icon = true
+
+[node name="lock" type="Button" parent="."]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 145.0
+offset_right = 1066.0
+offset_bottom = 552.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fwlej")
+icon = ExtResource("5_mmn6m")
+flat = true
+expand_icon = true
+
+[node name="goback" type="Button" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 39.0
+offset_right = 129.0
+offset_bottom = 125.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_2cm6c")
+icon = ExtResource("3_tj5l0")
+flat = true
+expand_icon = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3tk0t")
+
+[connection signal="pressed" from="saywordgame" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="matchboxgame" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="lock" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="goback" to="." method="_on_button_4_pressed"]
