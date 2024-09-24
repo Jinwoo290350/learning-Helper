@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Two Click"
+run/main_scene="res://intro/intro.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+global_score="*res://Scene_script/global_score.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[layer_names]
+
+2d_physics/layer_1="BG"
+2d_physics/layer_2="red"
+2d_physics/layer_3="green"
+2d_physics/layer_4="blue"
+2d_physics/layer_7="dead_zone"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://7sgkkqv5yje7"]
+
+[ext_resource type="Texture2D" uid="uid://j3skb6ohv8x2" path="res://godot-whisper/car autis.png" id="1_f7hks"]
+
+[node name="Car" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.05176e-05, 0)
+scale = Vector2(0.2475, 0.259542)
+texture = ExtResource("1_f7hks")

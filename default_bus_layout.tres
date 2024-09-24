@@ -1,0 +1,37 @@
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://b572n5e4iv3v4"]
+
+[sub_resource type="AudioEffectRecord" id="AudioEffectRecord_kv0rf"]
+resource_name = "Record"
+
+[sub_resource type="AudioEffectCapture" id="AudioEffectCapture_psa8h"]
+resource_name = "Capture"
+buffer_length = 1.0
+
+[sub_resource type="AudioEffectCapture" id="AudioEffectCapture_ayhe4"]
+resource_name = "Capture"
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectRecord_kv0rf")
+bus/0/effect/0/enabled = true
+bus/1/name = &"Record 2"
+bus/1/solo = false
+bus/1/mute = true
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectCapture_psa8h")
+bus/1/effect/0/enabled = true
+bus/2/name = &"mute Bus"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/3/name = &"Record"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectCapture_ayhe4")
+bus/3/effect/0/enabled = true

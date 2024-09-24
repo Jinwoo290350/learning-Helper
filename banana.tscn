@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm3itstq247dv"]
+
+[ext_resource type="Texture2D" uid="uid://0pydkhhm6x2k" path="res://godot-whisper/banana au.png" id="1_mb0p5"]
+
+[node name="Banana" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(0.0875, 0.10199)
+texture = ExtResource("1_mb0p5")
