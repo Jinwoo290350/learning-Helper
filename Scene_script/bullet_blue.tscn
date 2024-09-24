@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ti0mxghippwf"]
+
+[ext_resource type="Script" path="res://Scene_script/bullet_blue.gd" id="1_4oq6h"]
+[ext_resource type="Texture2D" uid="uid://dkvyarrfdbtnr" path="res://assets/box/box_colors_Blue.png" id="2_ev15h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdnpe"]
+size = Vector2(112, 112)
+
+[node name="bullet_blue" type="CharacterBody2D"]
+z_index = -1
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 66
+script = ExtResource("1_4oq6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 1)
+texture = ExtResource("2_ev15h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jdnpe")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

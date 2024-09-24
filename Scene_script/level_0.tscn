@@ -1,0 +1,183 @@
+[gd_scene load_steps=11 format=3 uid="uid://8he7r63axhvv"]
+
+[ext_resource type="Script" path="res://Scene_script/level_0.gd" id="1_a48nc"]
+[ext_resource type="Theme" uid="uid://c3rlbavjiqhye" path="res://new_theme.tres" id="1_uwexm"]
+[ext_resource type="Texture2D" uid="uid://ogdhgn6m1c7o" path="res://image/b_Play2.png" id="2_qp18h"]
+[ext_resource type="Texture2D" uid="uid://cuebfurrdyeti" path="res://assets/box/Banner.png" id="2_r8r7t"]
+[ext_resource type="Script" path="res://Scene_script/time_0.gd" id="5_3yure"]
+[ext_resource type="Texture2D" uid="uid://bhgy4xqvabmmu" path="res://assets/box/RedButton.png" id="5_y05pn"]
+[ext_resource type="Texture2D" uid="uid://cjrywib7bh244" path="res://assets/box/GreenButton.png" id="6_isfua"]
+[ext_resource type="Texture2D" uid="uid://bw7nyess4ebgg" path="res://assets/box/BlueButton.png" id="7_ktce4"]
+[ext_resource type="Texture2D" uid="uid://bedfknhv3lj26" path="res://assets/icon/Icon_ArrowUp_1.png" id="9_cqb6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjb6l"]
+size = Vector2(465.5, 61.5)
+
+[node name="Level_0" type="Node2D"]
+script = ExtResource("1_a48nc")
+
+[node name="marks" type="Node2D" parent="."]
+
+[node name="mark_0" type="Marker2D" parent="marks"]
+position = Vector2(440, 376)
+
+[node name="mark_1" type="Marker2D" parent="marks"]
+position = Vector2(600, 376)
+
+[node name="mark_2" type="Marker2D" parent="marks"]
+position = Vector2(759, 376)
+
+[node name="mark_3" type="Marker2D" parent="marks"]
+position = Vector2(440, 2)
+
+[node name="mark_4" type="Marker2D" parent="marks"]
+position = Vector2(600, 2)
+
+[node name="mark_5" type="Marker2D" parent="marks"]
+position = Vector2(759, 2)
+
+[node name="TextureRect" type="TextureRect" parent="marks"]
+z_index = -1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_r8r7t")
+
+[node name="time_0" type="Timer" parent="."]
+autostart = true
+script = ExtResource("5_3yure")
+
+[node name="dead_zone" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 14
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dead_zone"]
+polygon = PackedVector2Array(-32, -56, 1184, -40, 1160, 648, -8, 680, -16, 520, -32, -56, -112, 520, -8, 832, 1080, 744, 1264, 608, 1272, -48, 992, -144, -32, -56)
+
+[node name="End" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
+position = Vector2(600, 393)
+shape = SubResource("RectangleShape2D_hjb6l")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uwexm")
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 424.0
+offset_right = 826.0
+offset_bottom = 685.0
+scale = Vector2(0.835, 0.835)
+columns = 3
+
+[node name="arrow_0_0" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+icon = ExtResource("2_qp18h")
+flat = true
+icon_alignment = 1
+
+[node name="arrow_0_1" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+icon = ExtResource("2_qp18h")
+flat = true
+icon_alignment = 1
+
+[node name="arrow_0_2" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+icon = ExtResource("2_qp18h")
+flat = true
+icon_alignment = 1
+
+[node name="B_0_0" type="Button" parent="Control/GridContainer"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("5_y05pn")
+flat = true
+
+[node name="B_0_1" type="Button" parent="Control/GridContainer"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("6_isfua")
+flat = true
+
+[node name="B_0_2" type="Button" parent="Control/GridContainer"]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("7_ktce4")
+flat = true
+
+[node name="score_text" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 132.0
+offset_right = 1050.0
+offset_bottom = 214.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+text = "000"
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 360.0
+offset_right = 836.0
+offset_bottom = 424.0
+
+[node name="End" type="Control" parent="Control"]
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="End_text" type="Label" parent="Control/End"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 440.0
+offset_top = 130.0
+offset_right = 712.0
+offset_bottom = 335.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 150
+text = "End"
+
+[node name="B_restart" type="Button" parent="Control/End"]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 482.0
+offset_right = 1065.0
+offset_bottom = 584.0
+theme_override_font_sizes/font_size = 35
+icon = ExtResource("9_cqb6e")
+flat = true
+expand_icon = true
+
+[connection signal="timeout" from="time_0" to="time_0" method="_on_timeout"]
+[connection signal="pressed" from="Control/GridContainer/arrow_0_0" to="." method="_on_arrow_0_0_pressed"]
+[connection signal="pressed" from="Control/GridContainer/arrow_0_1" to="." method="_on_arrow_0_1_pressed"]
+[connection signal="pressed" from="Control/GridContainer/arrow_0_2" to="." method="_on_arrow_0_2_pressed"]
+[connection signal="pressed" from="Control/GridContainer/B_0_0" to="." method="_on_b_0_0_pressed"]
+[connection signal="pressed" from="Control/GridContainer/B_0_1" to="." method="_on_b_0_1_pressed"]
+[connection signal="pressed" from="Control/GridContainer/B_0_2" to="." method="_on_b_0_2_pressed"]
+[connection signal="pressed" from="Control/End/B_restart" to="." method="_on_b_restart_pressed"]

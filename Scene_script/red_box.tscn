@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsuobhpo0axp7"]
+
+[ext_resource type="Script" path="res://Scene_script/red_box.gd" id="1_r7g85"]
+[ext_resource type="Texture2D" uid="uid://mkp45cq4r3w8" path="res://assets/box/box_colors_Res.png" id="2_j4png"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3f4lt"]
+radius = 64.0
+
+[node name="red_box" type="Area2D"]
+position = Vector2(832, 384)
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 78
+script = ExtResource("1_r7g85")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_j4png")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3f4lt")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba8wc2ymdlmex"]
+
+[ext_resource type="Script" path="res://Scene_script/bullet_green.gd" id="1_6e7ml"]
+[ext_resource type="Texture2D" uid="uid://cmk1sp4ycgvpg" path="res://assets/box/box_colors_Green.png" id="2_ewfyt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdnpe"]
+size = Vector2(112, 112)
+
+[node name="bullet_green" type="CharacterBody2D"]
+z_index = -1
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 66
+script = ExtResource("1_6e7ml")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+texture = ExtResource("2_ewfyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jdnpe")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
